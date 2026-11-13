@@ -1,11 +1,10 @@
 # P25 Phase 1 核心（IMBE 声码器 + 空中接口）
 
-用在 Baofeng DM-32UV 的开源固件 [OpenDMR](https://github.com/va3bpf/OpenDMR) 里（它的子模块 `p25/`）。
+[English](README.en.md) · 用在 Baofeng DM-32UV 的开源固件 [OpenDMR](https://github.com/va3bpf/OpenDMR) 里（它的子模块 `p25/`）。
 
 APCO P25 Phase 1 常规（直通 / 中继）语音的两部分，自己实现，C 代码不依赖电台，在电脑上就能测试：
 
-- **IMBE 声码器**（全速率 7200x4400：每 20 ms 一帧，88 bit 参数 + 56 bit 纠错 = 144 bit）
-- **IMBE 编码器**（语音 → 88 bit 参数）
+- **IMBE 声码器**（全速率 7200x4400：每 20 ms 一帧，88 bit 参数 + 56 bit 纠错 = 144 bit）：解码器和编码器，定点 C
 - **空中接口**：帧同步、NID（BCH）、HDU / LDU1 / LDU2 / TDU / TDULC 的收和发，Golay / Hamming / Reed-Solomon 纠错
   （Reed-Solomon 支持“错误 + 删除”：收不到的符号当删除），链路控制、加密同步
 
